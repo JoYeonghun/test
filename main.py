@@ -16,18 +16,18 @@ model = SentenceTransformer('sentence-transformers/xlm-r-100langs-bert-base-nli-
 ## 경고 해제
 pd.set_option('mode.chained_assignment',  None)
 
-train_data = pd.read_csv('------------------------------')
+train_data = pd.read_csv('https://github.com/JoYeonghun/test/tree/main/data/Sentence(100)_Embedding.csv')
 t_data = train_data[['Q','A','embedding']]
 
 ## t_data['embedding'] str -> numpy 형변환
 a = []
-for _ in range(175745):
+for _ in range(100):
   tmp = t_data['embedding'][_].replace('[', '').replace(']', '').replace('\n', '')
   s_to_n = np.fromstring(tmp, dtype='f', sep=' ')
   a.append(np.array(s_to_n, dtype='f'))
-  if _ % 17574 == 0 :
+  if _ % 10 == 0 :
     print("\r", end='')
-    print(f'{_ // 17574 * 10}% :', '##'*(_ // 17574), end='')
+    print(f'{_ // 10 * 10}% :', '##'*(_ // 10), end='')
 
 new_data = t_data[['Q','A']]
 new_data['embedding'] = a
