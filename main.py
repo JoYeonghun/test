@@ -47,3 +47,20 @@ st.text("기록이 완료됐습니다.")
 
 ## 위로 문장 출력
 st.write(return_similar_answer(message))
+
+## 메모리
+import gc
+import objgraph
+
+for o in gc.get_objects():
+    if 'session_state.SessionState' in str(type(o)) and o is not st.session_state:
+        filename = f'/tmp/session_state_{hex(id(o))}.png'
+        objgraph.show_chain(
+            objgraph.find_backref_chain(
+                 o,
+                 objgraph.is_proper_module),
+            backrefs=False,
+            filename=filename)
+
+        st.write("SessionState reference retained by: ", type(o))
+        st.image(filename)
