@@ -6,5 +6,4 @@ torch
 gluonnlp
 numpy
 pandas
-gc
 objgraph
