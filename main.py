@@ -17,7 +17,6 @@ model = SentenceTransformer('sentence-transformers/xlm-r-100langs-bert-base-nli-
 pd.set_option('mode.chained_assignment',  None)
 
 train_data = pd.read_csv('https://raw.githubusercontent.com/JoYeonghun/test/main/data/Sentence(100)_Embedding.csv')
-st.write(train_data)
 t_data = train_data[['Q','A','embedding']]
 
 ## t_data['embedding'] str -> numpy 형변환
