@@ -16,7 +16,7 @@ model = SentenceTransformer('sentence-transformers/xlm-r-100langs-bert-base-nli-
 ## 경고 해제
 pd.set_option('mode.chained_assignment',  None)
 
-train_data = pd.read_csv('https://github.com/JoYeonghun/test/tree/main/data/Sentence(100)_Embedding.csv')
+train_data = pd.read_csv('https://github.com/JoYeonghun/test/tree/main/data/Sentence(100)_Embedding.csv', sep='\t')
 st.write(train_data)
 # t_data = train_data[['Q','A','embedding']]
 
